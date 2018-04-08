@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <script>
+        class Deck{
+            constructor(){
+                this.cards = []
+            }
+            makeCards() {
+                let suits = ["♠", "♥", "♦", "♣"]
+                let vals = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
+                for (var i in suits) {
+                    for (var j in vals){
+                        this.cards.push(vals[j] + " " + suits[i]);
+                    }
+                }
+            }
+            showCards() {
+                console.log(this.cards)
+            }
+
+            shuffle() {
+                let i = 0
+                let j = 0
+                let temp = null
+
+                for (i = this.cards.length - 1; i > 0; i -= 1) {
+                    j = Math.floor(Math.random() * (i + 1))
+                    temp = this.cards[i]
+                    this.cards[i] = this.cards[j]
+                    this.cards[j] = temp
+                
+                }
+                return this
+            }
+            
+            reset() {
+                this.cards =[]
+                this.makeCards()
+                return this
+            }
+            deal(){
+                let dealtCard = this.cards.pop()
+                return dealtCard
+            }
+        }
+
+        class Player {
+            constructor(name){
+                this.name = name;
+                this.hand = [];
+            }
+            take(x) {
+                if (x instanceof Deck){
+                    this.hand.push(x.deal())
+                
+                } else {
+                    console.log("false")
+                }
+                return this
+            }
+            discard(){
+                let x = this.hand.pop()
+                return x
+            }
+        }
+
+        let d = new Deck();
+        d.makeCards()
+        
+        d.shuffle()
+       
+        d.showCards()
+
+        let p = new Player();
+
+        p.take(d);
+
+        console.log(p.hand)
+    
+        
+        // let a = p.discard();
+        // console.log(a)
+
+
+        
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

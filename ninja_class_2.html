@@ -1,0 +1,63 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        function Ninja(name) {
+            this.name = name;
+            this.health = 100;
+            const speed = 3;
+            const strength = 3;
+            this.sayName = function () {
+                console.log("My ninja name is " + name)
+            }
+            this.showStats = function () {
+                console.log("Name: " + name + ", Health: " + this.health + ", Speed: " + speed + ", Strength: " + strength)
+
+            }
+            this.drinkSake = function () {
+                this.health += 10
+            }
+            this.punch = function (whatever){
+                if (whatever instanceof Ninja) {
+                    this.health -= 5;
+                } else {
+                    console.log("false")
+                }
+                
+            }
+
+            this.kick = function (whatever) {
+                if (whatever instanceof Ninja) {
+                    this.health -= 5;
+                } else {
+                    console.log("false")
+                }
+
+            }
+        }
+
+        const ninja = new Ninja("ian")
+        ninja.sayName()
+
+        ninja.showStats()
+
+        const ninja2 = new Ninja("peter")
+        ninja.punch(ninja2)
+        ninja.punch(ninja2)
+        ninja.kick(ninja2)
+        ninja.kick(ninja2)
+        ninja2.showStats()
+        ninja.showStats()
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+
+        class Ninja {
+                constructor(name) {
+                    this.name = name;
+                    this.health = 100;
+                    this.speed = 3;
+                    this.strength = 3;
+                }
+                sayName(){
+                    console.log(this.name)
+                }
+                showStats(){
+                    console.log("Name: " + this.name + ", Health: " + this.health + ", Speed: " + this.speed + ", Strength: " + this.strength)
+                }
+                drinkSake(){
+                    this.health += 10;
+                }
+            }
+
+        class Sensei extends Ninja {
+                constructor(name) {
+                    super(name);
+                    this.health = 200;
+                    this.speed = 10;
+                    this.strength = 10;
+                    this.wisdom = 10;
+                }
+                speakWisdom(){
+                    super.drinkSake()
+                    console.log("What one programmer can do in one month, two programmers can do in two months.")
+                }
+
+            }
+
+    const superSensei = new Sensei("Master Splinter");
+    superSensei.speakWisdom();
+    // -> "What one programmer can do in one month, two programmers can do in two months."
+    superSensei.showStats();
+
+
+            // let a = new Ninja("Ian")
+            // a.drinkSake()
+            // a.showStats()
+            // a.sayName()
+
+
+
+
+
+
+            
+        // class Ninja(name) {
+        //     this.name = name;
+        //     this.health = 100;
+        //     const speed = 3;
+        //     const strength = 3;
+        //     this.sayName = function () {
+        //         console.log("My ninja name is " + name)
+        //     }
+        //     this.showStats = function () {
+        //         console.log("Name: " + name + ", Health: " + this.health + ", Speed: " + speed + ", Strength: " + strength)
+
+        //     }
+        //     this.drinkSake = function () {
+        //         this.health += 10
+        //     }
+        //     this.punch = function (whatever) {
+        //         if (whatever instanceof Ninja) {
+        //             Ninja.health -= 5;
+        //         } else {
+        //             console.log("false")
+        //         }
+
+        //     }
+
+        //     this.kick = function (whatever) {
+        //         if (whatever instanceof Ninja) {
+        //             Ninja.health -= 15;
+        //         } else {
+        //             console.log("false")
+        //         }
+
+        //     }
+        // }
+
+        // const ninja = new Ninja("ian")
+        // ninja.sayName()
+
+        // ninja.drinkSake()
+        // ninja.showStats()
+        // const ninja2 = new Ninja("peter")
+        // ninja.punch(ninja2)
+        // ninja.kick(ninja2)
+        // ninja2.showStats()
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
